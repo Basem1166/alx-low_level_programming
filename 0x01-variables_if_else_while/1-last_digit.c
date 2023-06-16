@@ -1,27 +1,24 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 
-/** 
-* betty style doc for function main goes there 
-*/
-
+/**
+ * main - Entry point
+ *
+ * Description: Prints single-digit numbers in base 10 starting from 0
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-		int n;
+	int number;
 
-			srand(time(0));
-				n = rand();
-					
-					printf("Last digit of %d is %d and is ", n, n % 10);
-						
-						if ((n % 10) > 5)
-									printf("greater than 5\n");
-							else if ((n % 10) == 0)
-										printf("0\n");
-								else
-											printf("less than 6 and not 0\n");
-									
-									return (0);
+	/* Print single-digit numbers in base 10 */
+	for (number = 0; number <= 9; number++)
+	{
+		putchar(number + '0');
+	}
+
+	putchar('\n');
+
+	return (0);
 }
 
