@@ -1,23 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
  * main - Entry point
  *
- * Description: Prints single-digit numbers in base 10 starting from 0
+ * Description: Assigns a random number to the variable n and prints the last
+ *              digit along with additional information.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int number;
+	int n, lastDigit;
 
-	/* Print single-digit numbers in base 10 */
-	for (number = 0; number <= 9; number++)
-	{
-		putchar(number + '0');
-	}
+	srand(time(0));
+	n = rand();
 
-	putchar('\n');
+	lastDigit = abs(n) % 10;
+
+	printf("Last digit of %d is %d and is ", n, lastDigit);
+
+	if (lastDigit > 5)
+		printf("greater than 5\n");
+	else if (lastDigit == 0)
+		printf("0\n");
+	else
+		printf("less than 6 and not 0\n");
 
 	return (0);
 }
