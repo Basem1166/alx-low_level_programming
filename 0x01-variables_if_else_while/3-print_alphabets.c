@@ -3,8 +3,8 @@
 /**
  * main - Entry point
  *
- * Description: Prints the alphabet in lowercase and then uppercase
- *              using the putchar function.
+ * Description: Prints the alphabet in lowercase and then
+ *              uppercase using the putchar function.
  *
  * Return: Always 0 (Success)
  */
@@ -20,6 +20,6 @@ int main(void)
 
 	putchar('\n');
 
-	return 0;
+	return (0);
 }
 
