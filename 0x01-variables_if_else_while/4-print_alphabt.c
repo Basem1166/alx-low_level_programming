@@ -3,7 +3,8 @@
 /**
  * main - Entry point
  *
- * Description: Prints the alphabet in lowercase excluding the letters 'q' and 'e',
+ * Description: Prints the alphabet in lowercase excluding the letters
+ *              'q' and 'e',
  *              followed by a new line using the putchar function.
  *
  * Return: Always 0 (Success)
@@ -20,6 +21,6 @@ int main(void)
 
 	putchar('\n');
 
-	return 0;
+	return (0);
 }
 
