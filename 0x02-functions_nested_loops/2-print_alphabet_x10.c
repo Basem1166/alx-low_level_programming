@@ -2,12 +2,13 @@
 
 /**
  * print_alphabet_x10 - Prints the alphabet in lowercase, followed by a new line
- * @c: The character to be checked..
  */
 void print_alphabet_x10(void)
 {
 	char letter;
+
 	int i;
+
 	for(i = 0 ; i<10 ; i++)
 	{
 		for (letter = 'a'; letter <= 'z'; letter++)
