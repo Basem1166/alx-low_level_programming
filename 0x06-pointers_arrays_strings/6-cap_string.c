@@ -1,5 +1,4 @@
 #include "main.h"
-#include <ctype.h>  // Include the ctype.h library for the toupper() function
 
 /**
  * cap_string - Capitalizes all words of a string
@@ -11,23 +10,21 @@ char *cap_string(char *str)
 {
 	int i;
 
-	/* Capitalize the first character */
+	/* Capitalize the first letter of the string */
 	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] = toupper(str[0]);
+		str[0] -= 32;
 
-	/* Capitalize the subsequent characters after separators */
 	for (i = 1; str[i] != '\0'; i++)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		/* Capitalize letters after separators */
+		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+		    str[i] == ',' || str[i] == ';' || str[i] == '.' ||
+		    str[i] == '!' || str[i] == '?' || str[i] == '"' ||
+		    str[i] == '(' || str[i] == ')' || str[i] == '{' ||
+		    str[i] == '}')
 		{
-			if (str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n' ||
-			    str[i - 1] == ',' || str[i - 1] == ';' || str[i - 1] == '.' ||
-			    str[i - 1] == '!' || str[i - 1] == '?' || str[i - 1] == '"' ||
-			    str[i - 1] == '(' || str[i - 1] == ')' || str[i - 1] == '{' ||
-			    str[i - 1] == '}')
-			{
-				str[i] = toupper(str[i]);
-			}
+			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+				str[i + 1] -= 32;
 		}
 	}
 
