@@ -14,13 +14,13 @@ char *str_concat(char *s1, char *s2)
 	int length;
 	char *ar;
 	int i;
-	int j;
+	int j = 0;
 
 	for (i = 0; s1[i] != '\0'; i++)
 		length++;
 	for (i = 0; s2[i] != '\0'; i++)
 		length++;
-	ar = (char *)malloc(length * sizeof(char));
+	ar = (char *)malloc(length * sizeof(char) + 1);
 
 	if (ar)
 	{
