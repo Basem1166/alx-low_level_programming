@@ -35,11 +35,10 @@ char *argstostr(int ac, char **av)
 				st[k] = av[i][j];
 				k++;
 			}
-			if (i != ac)
-				st[k] = '\n';
-			st[k] = '\0';
+			st[k] = '\n';
 			k++;
 		}
 	}
+	st[k] = '\0';
 	return (st);
 }
