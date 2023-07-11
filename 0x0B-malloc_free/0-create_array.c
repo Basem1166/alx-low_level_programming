@@ -25,4 +25,5 @@ char *create_array(unsigned int size, char c)
 	if (!ar)
 		return (NULL);
 	return (ar);
+	free (ar);
 }
