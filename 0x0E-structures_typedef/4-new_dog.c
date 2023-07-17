@@ -41,7 +41,6 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *p;
-	char *name2, owner2;
 
 	/* reserving memory to struct*/
 	p = malloc(sizeof(dog_t));
@@ -60,8 +59,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(name);
 		return (NULL);
 	}
-	name2 = _strdup(name);
-	owner2 = _strdup(owner);
 	p->name = name;
 	p->age = age;
 	p->owner = owner;
