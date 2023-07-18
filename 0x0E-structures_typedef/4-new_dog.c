@@ -1,66 +1,71 @@
 #include "dog.h"
 #include <stdlib.h>
-
 /**
-  *_strdup - creates an array of char
-  * @str : string
-  * Return: pointer to array
-  */
-
-char *_strdup(char *str)
+ * _strlen - return the len of string *s
+ * @s: a string.
+ * Return: len of string.
+ */
+unsigned int _strlen(char *s)
 {
-	char *ar;
-	int i;
-	int length;
+	unsigned int len = 0;
 
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0; str[i] != '\0'; i++)
-		length++;
-
-	ar = (char *)malloc(sizeof(char) * length + 1);
-	if (ar)
-	{
-		for (i = 0; str[i] != '\0'; i++)
-			ar[i] = str[i];
-	}
-
-	if (!ar)
-		return (NULL);
-	ar[length] = '\0';
-	return (ar);
+	while (*(s + len))
+		len++;
+	return (len);
 }
 /**
- * new_dog - entry point
- * @name: string from main, name of pet
- * @age: number from main, age of pet
- * @owner: string from main, owner of pet
- * Return: p
+ * _strcpy - copy string
+ * @s: string to copy
+ * @len: len of string to copy
+ * Return: copy string.
  */
+char *_strcpy(char *s, int len)
+{
+	char *new_s;
+	int i = 0;
+
+	new_s = malloc(sizeof(char) * (len + 1));
+	if (!new_s)
+		return (NULL);
+	while (s[i])
+	{
+		new_s[i] = s[i];
+		i++;
+	}
+	new_s[i] = s[i];
+	return (new_s);
+}
+/**
+  * new_dog - creates a new dog.
+  *
+  * @name: name.
+  * @age: age.
+  * @owner: owner.
+  * Return: nothing.
+  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *p;
+	dog_t *d;
+	char *cpy_name, *cpy_owner;
 
-	/* reserving memory to struct*/
-	p = malloc(sizeof(dog_t));
-	if (p == NULL)
+	d = malloc(sizeof(dog_t));
+	if (!d)
 		return (NULL);
-	/* checking name pointer*/
-	if (name == NULL)
-	{
-		free(p);
-		free(owner);
-		return (NULL);
-	}
-	if (owner == NULL)
-	{
-		free(p);
-		free(name);
+	/* Copy strings */
+	cpy_name = _strcpy(name, _strlen(name));
+	cpy_owner = _strcpy(owner, _strlen(owner));
+	/* If fail someone free and return NULL */
+	if (!cpy_name || !cpy_owner)
+	{	free(d);
+		if (cpy_name)
+			free(cpy_name);
+		if (cpy_owner)
+			free(cpy_owner);
 		return (NULL);
 	}
-	p->name = name;
-	p->age = age;
-	p->owner = owner;
-	return (p);
+	/* Otherwise assing name and owner */
+	d->name = cpy_name;
+	d->age = age;
+	d->owner = cpy_owner;
+	return (d);
 }
