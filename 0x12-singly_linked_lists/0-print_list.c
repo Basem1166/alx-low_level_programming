@@ -1,6 +1,6 @@
 #include "lists.h"
-#include <stdio>
-#include <stdlib>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
   *print_list - prints list
