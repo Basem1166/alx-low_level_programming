@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
-  * creat_file - creates a file
+  * create_file - creates a file
   * @filename : name of file
   * @text_content : content
   * Return: 1 on success , -1 on fail
